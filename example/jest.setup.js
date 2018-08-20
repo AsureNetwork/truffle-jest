@@ -4,6 +4,6 @@ jest.setTimeout(15000);
 // reset after every test case instead of every file
 beforeEach(() => {
   return new Promise(resolve => {
-    truffleTest.runner.initialize(resolve);
+    runner.initialize(resolve);
   });
 });
