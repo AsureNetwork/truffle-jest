@@ -1,5 +1,7 @@
 # truffle-jest
 
+[![npm version](https://badge.fury.io/js/truffle-jest.svg)](https://badge.fury.io/js/truffle-jest)
+
 Run your truffle tests with the standard [Jest](https://jestjs.io/docs/en/configuration)
 test runner instead of `truffle test`.
 
