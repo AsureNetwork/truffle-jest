@@ -27,6 +27,8 @@ npm install --save truffle-jest
 ```
 
 ```json
+// package.json
+
 {
   "scripts": {
     "test": "jest --runInBand"
