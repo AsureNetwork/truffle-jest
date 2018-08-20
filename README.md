@@ -75,3 +75,7 @@ The current flaws are
 
 - does not support tests written in solidity
 - no event logs on failed tests
+
+## Special Thanks
+
+A special thank goes to the [Truffle team](https://truffleframework.com/)!
