@@ -11,7 +11,7 @@ serious development yet.
 
 ## Example
 
-![Image of Webstorm and Tests](https://github.com/AsureFoundation/truffle-jest/blob/master/screenshot.png)
+![Image of Webstorm and Tests](https://raw.githubusercontent.com/AsureFoundation/truffle-jest/master/screenshot.png)
 
 ## How to setup?
 
