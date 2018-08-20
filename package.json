@@ -1,0 +1,26 @@
+{
+  "name": "truffle-jest",
+  "version": "1.0.0",
+  "description": "run truffle tests with jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest-environment-node": "^23.4.0",
+    "mkdirp": "^0.5.1",
+    "prettier": "^1.14.2",
+    "temp": "^0.8.3",
+    "truffle-artifactor": "^3.0.7",
+    "truffle-compile": "^3.0.13",
+    "truffle-config": "^1.0.6",
+    "truffle-core": "^4.1.14",
+    "truffle-migrate": "^2.0.8",
+    "truffle-resolver": "^4.0.4",
+    "truffle-workflow-compile": "^1.0.6",
+    "web3": "^0.20.7"
+  }
+}
