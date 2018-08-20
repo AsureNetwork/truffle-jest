@@ -1,80 +1,75 @@
-# truffle-testing-addon
+# truffle-jest
 
-**DO NOT use this for any serious development**
+Run your truffle tests with the standard [Jest](https://jestjs.io/docs/en/configuration)
+test runner instead of `truffle test`.
 
-Experimenting with truffle test execution. In particular we would
-like to execute truffle tests with the standard mocha cli instead of
-useing `truffle test`.
+**NOTE: This implementation is still very much a work in progress.** It
+can be used for testing, but it should not be used for any
+serious development yet.
 
-Advantages that we're most interested in are
+## Example
 
-  - executing only some tests
-  - easy IDE integration
-  
-Current flaws
+![Image of Webstorm and Tests](https://github.com/AsureFoundation/truffle-jest/blob/master/screenshot.png)
 
-  - doss not support tests written in solidity 
-  - truffle compile must be executed before test execution
-  - usage kinda sucks at the moment / feels bad
+## How to setup?
 
-## How to use
+Please take a look a [the example](https://github.com/AsureFoundation/truffle-jest/tree/master/example).
 
 ```bash
-mocha
-mocha --grep "^Test"
-mocha --grep "^Test" --watch
+mkdir demo
+cd demo
+
+truffle init
+npm init -y
+npm install --save truffle-jest
 ```
 
-```solidity
-pragma solidity ^0.4.23;
-
-contract Test {
-  int num;
-
-  function show() public view returns (int) {
-    return num;
-  }
-
-  function increment() public returns (int) {
-    num++;
-
-    return num;
+```json
+{
+  "scripts": {
+    "test": "jest --runInBand"
   }
 }
 ```
 
 ```js
-const assert = require("assert");
-const truffleTestPromise = require("truffle-testing-addon");
+// jest.config.js
 
-let truffleTest, Test;
-before(async function() {
-  this.timeout(10000);
-  truffleTest = await truffleTestPromise;
-  Test = truffleTest.artifacts.require("Test");
-});
+module.exports = {
+  verbose: true,
+  setupTestFrameworkScriptFile: "./jest.setup.js",
+  globalSetup: "truffle-jest/lib/setup",
+  globalTeardown: "truffle-jest/lib/teardown",
+  testEnvironment: "truffle-jest/lib/environment"
+};
+```
 
-describe("Test", () => {
-  before(function(done) {
-    truffleTest.addHooks(this, done);
-  });
+```js
+// jest.setup.js
 
-  it("show should return 0", async () => {
-    const instance = await Test.deployed();
-    const result = await instance.show.call();
+jest.setTimeout(15000);
 
-    assert.strictEqual(result.toNumber(), 0);
-  });
-
-  it("Test 2", async () => {
-    const instance = await Test.deployed();
-
-    await instance.increment();
-    await instance.increment();
-
-    const result = await instance.show.call();
-
-    assert.strictEqual(result.toNumber(), 2);
+// Optional: Reset clean room after every test instead of every file
+beforeEach(() => {
+  return new Promise(resolve => {
+    runner.initialize(resolve);
   });
 });
 ```
+
+## Motivation
+
+At Asure, we where experimenting with truffle test execution. In particular
+we wanted to execute truffle tests with the standard test runner instead of
+using `truffle test` have all features of the test runner available.
+
+Advantages that we're most interested in are
+
+- executing only some tests instead of all
+- easy IDE integration (WebStorm, etc.)
+- clean room environment per test instead of hole test suite possible
+
+The current flaws are
+
+- does not support tests written in solidity
+- no event logs on failed tests
