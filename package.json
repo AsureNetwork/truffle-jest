@@ -1,14 +1,22 @@
 {
   "name": "truffle-jest",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "run truffle tests with jest",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "truffle",
+    "jest",
+    "testing"
+  ],
+  "author": "Fabian Raetz <fabian.raetz@gmail.com>",
+  "contributors": [
+    "Gamal Schmuck <gschmuck@asure.io>",
+    "Paul Mizel <pmizel@asure.io>"
+  ],
+  "license": "MIT",
   "dependencies": {
     "jest-environment-node": "^23.4.0",
     "mkdirp": "^0.5.1",
