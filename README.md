@@ -9,7 +9,24 @@ test runner instead of `truffle test`.
 can be used for testing, but it should not be used for any
 serious development yet.
 
+**NOTE: This project only supports truffle@beta for now**
+
 ## Example
+
+### Shell
+
+```bash
+# run all tests
+$ jest
+
+# run all tests and keep watching for changes
+$ jest --watchAll
+
+# run just a subset of your tests
+$ jest --testNamePattern=Test
+```
+
+### WebStorm Integration
 
 ![Image of Webstorm and Tests](https://raw.githubusercontent.com/AsureFoundation/truffle-jest/master/screenshot.png)
 
@@ -21,9 +38,11 @@ Please take a look a [the example](https://github.com/AsureFoundation/truffle-je
 mkdir demo
 cd demo
 
+npm install -g truffle@beta
 truffle init
+
 npm init -y
-npm install --save truffle-jest
+npm install --save truffle-jest jest @types/jest
 ```
 
 ```json
@@ -31,7 +50,7 @@ npm install --save truffle-jest
 
 {
   "scripts": {
-    "test": "jest --runInBand"
+    "test": "jest"
   }
 }
 ```
