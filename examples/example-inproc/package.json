@@ -1,0 +1,24 @@
+{
+  "name": "example-inproc",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "ganache": "ganache-cli"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "ganache-cli": "^6.1.8",
+    "jest": "^23.5.0",
+    "truffle-jest": "^0.1.1"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,7 @@
+build
+.idea
+node_modules
+.npmrc
+*.log
+
+jest-test
