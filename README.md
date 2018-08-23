@@ -3,7 +3,8 @@
 [![npm version](https://badge.fury.io/js/truffle-jest.svg)](https://badge.fury.io/js/truffle-jest)
 
 Run your truffle tests with the standard [Jest](https://jestjs.io/docs/en/configuration)
-test runner instead of `truffle test`.
+test runner instead of `truffle test`. For more information, visit our 
+[blog post](https://medium.com/@ASURE.io/running-truffle-unit-tests-with-jest-f59b5049b66a).
 
 **NOTE: This implementation is still very much a work in progress.** It
 can be used for testing, but it should not be used for any
